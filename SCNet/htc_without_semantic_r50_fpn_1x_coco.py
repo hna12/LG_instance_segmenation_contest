@@ -6,6 +6,7 @@ _base_ = [
 
 model = dict(
     type='HybridTaskCascade',
+    #ResNet50 의 경우
     backbone=dict(
         type='ResNet',
         depth=50,
