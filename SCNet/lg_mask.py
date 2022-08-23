@@ -1,11 +1,5 @@
 # 사용할 모델 선택
-#backbone ResNet50을 쓰는 경우
 _base_ = 'configs/scnet/scnet_r50_fpn_1x_coco.py'
-#backbone ResNet101을 쓰는 경우
-#_base_ = 'configs/scnet/scnet_r101_fpn_20e_coco.py'
-
-#backbone ResNeXt101을 쓰는 경우
-#_base_ = 'configs/scnet/scnet_x101_64x4d_fpn_20e_coco.py'
 
 checkpoint_config = dict(interval=1, out_dir='/content/drive/MyDrive/KDT/offline/project2/SCNet')
 max_epochs= 40
