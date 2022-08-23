@@ -1,5 +1,9 @@
 # 사용할 모델 선택
 _base_ = 'configs/scnet/scnet_r50_fpn_1x_coco.py'
+#resnet101 의 경우
+#_base_ = 'configs/scnet/scnet_r101_fpn_20e_coco.py'
+#resnext의 경우
+#_base_ = 'configs/scnet/scnet_x101_64x4d_fpn_20e_coco.py'
 
 checkpoint_config = dict(interval=1, out_dir='/content/drive/MyDrive/KDT/offline/project2/SCNet')
 max_epochs= 40
@@ -18,8 +22,12 @@ evaluation = dict(
 
 # 사전 가중치 사용
 load_from = 'checkpoint/scnet_r50_fpn_1x_coco-c3f09857.pth'
+#load_from = 'checkpoint/scnet_r101_fpn_20e_coco-294e312c.pth'
+#load_from = 'checkpoint/scnet_x101_64x4d_fpn_20e_coco-fb09dec9.pth'
+
 #이어서 학습을 하고싶을때 마지막으로  저장된  epoch load
 #resume_from = '/content/drive/MyDrive/KDT/offline/project2/SCNet/epoch_1.pth'
+
 # epoch 설정 
 runner = dict(type='EpochBasedRunner', max_epochs=max_epochs)
 
