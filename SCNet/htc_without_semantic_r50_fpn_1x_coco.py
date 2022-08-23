@@ -18,6 +18,13 @@ model = dict(
         style='pytorch',
         init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet50')),
 
+    #ResNet Strikes back의 경우
+    #backbone=dict(
+    #    init_cfg=dict(
+    #        type='Pretrained', prefix='backbone.', checkpoint='https://download.openmmlab.com/mmclassification/v0/resnet/resnet50_8xb256-rsb-a1-600e_in1k_20211228-20e21305.pth'))
+
+
+
     neck=dict(
         type='FPN',
         in_channels=[256, 512, 1024, 2048],
