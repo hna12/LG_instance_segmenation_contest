@@ -8,7 +8,7 @@ log_config = dict(
             init_kwargs=dict(
                 project='deepdream2',
                 entity = 'hna12',
-                name = 'scnet'
+                name = 'cascade_mask_RCNN'
             ),
             )
     ])
