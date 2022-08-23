@@ -1,6 +1,6 @@
 # Cascade Mask R-CNN
 
-link: https://paperswithcode.com/method/cascade-mask-r-cnn
+paper link: https://paperswithcode.com/method/cascade-mask-r-cnn
 
 Cascade Mask R-CNN extends Cascade R-CNN to instance segmentation, by adding a mask head to the cascade.
 
