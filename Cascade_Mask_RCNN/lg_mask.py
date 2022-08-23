@@ -1,13 +1,8 @@
 # 사용할 모델 선택
-#backbone ResNet50을 쓰는 경우
-_base_ = 'configs/scnet/scnet_r50_fpn_1x_coco.py'
-#backbone ResNet101을 쓰는 경우
-#_base_ = 'configs/scnet/scnet_r101_fpn_20e_coco.py'
+_base_ = 'configs/cascade_rcnn/cascade_mask_rcnn_x101_32x4d_fpn_1x_coco.py'
+#_base_ = 'configs/cascade_rcnn/cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py'
 
-#backbone ResNeXt101을 쓰는 경우
-#_base_ = 'configs/scnet/scnet_x101_64x4d_fpn_20e_coco.py'
-
-checkpoint_config = dict(interval=1, out_dir='/content/drive/MyDrive/KDT/offline/project2/SCNet')
+checkpoint_config = dict(interval=1, out_dir='/content/drive/MyDrive/KDT/offline/project2/cascademaskRCNN')
 max_epochs= 40
 num_last_epochs= 10
 # 평가 방법
@@ -23,9 +18,11 @@ evaluation = dict(
     )
 
 # 사전 가중치 사용
-load_from = 'checkpoint/scnet_r50_fpn_1x_coco-c3f09857.pth'
+load_from = 'checkpoint/cascade_mask_rcnn_x101_32x4d_fpn_1x_coco_20200201-0f411b1f.pth'
+#load_from = 'checkpoint/cascade_mask_rcnn_x101_64x4d_fpn_1x_coco_20200203-9a2db89d.pth'
+
 #이어서 학습을 하고싶을때 마지막으로  저장된  epoch load
-#resume_from = '/content/drive/MyDrive/KDT/offline/project2/SCNet/epoch_1.pth'
+#resume_from = '/content/drive/MyDrive/KDT/offline/project2/cascademaskRCNN/epoch_1.pth'
 # epoch 설정 
 runner = dict(type='EpochBasedRunner', max_epochs=max_epochs)
 
