@@ -1,6 +1,6 @@
 # 사용할 모델 선택
-_base_ = 'configs/cascade_rcnn/cascade_mask_rcnn_x101_32x4d_fpn_1x_coco.py'
-#_base_ = 'configs/cascade_rcnn/cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py'
+#_base_ = 'configs/cascade_rcnn/cascade_mask_rcnn_x101_32x4d_fpn_1x_coco.py'
+_base_ = 'configs/cascade_rcnn/cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py'
 
 checkpoint_config = dict(interval=1, out_dir='/content/drive/MyDrive/KDT/offline/project2/cascademaskRCNN')
 max_epochs= 40
