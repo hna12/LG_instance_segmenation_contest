@@ -13,6 +13,15 @@ model = dict(
         init_cfg=dict(
             type='Pretrained', checkpoint='open-mmlab://resnext101_64x4d')))
 
+
+# resnet strikesback을 쓰는 경우
+# checkpoint = 'https://download.openmmlab.com/mmclassification/v0/resnet/resnet50_8xb256-rsb-a1-600e_in1k_20211228-20e21305.pth'  # noqa
+# model = dict(
+#     backbone=dict(
+#         init_cfg=dict(
+#             type='Pretrained', prefix='backbone.', checkpoint=checkpoint)))
+
+
 # checkpoint = '/home/ubuntu/hyunna/lg_test/mmdetection/checkpoint/cascade_mask_rcnn_s101_fpn_syncbn-backbone+head_mstrain_1x_coco_20201005_113243-42607475.pth'
 # model = dict(
 #     backbone=dict(
