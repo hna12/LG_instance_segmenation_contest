@@ -1,4 +1,4 @@
-#Mask scoring R-CNN
+# Mask scoring R-CNN
 link: https://paperswithcode.com/method/mask-scoring-r-cnn
 
 Mask scoring R-CNN = Mask RCNN with MaskIoU Head, which takes the instance feature and the predicted mask together as input, and predicts the IoU btw input mask and GT mask
