@@ -4,7 +4,7 @@ paper link: https://paperswithcode.com/method/cascade-mask-r-cnn
 
 Cascade Mask R-CNN extends Cascade R-CNN to instance segmentation, by adding a mask head to the cascade.
 
-backbone: ResNet50, ResNet101, ResNext101, ResNet strikes back
+backbone: ResNext101, ResNet strikes back
 
 optimizer: SGD, Adadelta
 
