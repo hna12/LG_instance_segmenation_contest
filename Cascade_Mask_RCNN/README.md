@@ -8,6 +8,6 @@ backbone: ResNext101, ResNet strikes back
 
 optimizer: SGD, Adadelta
 
-AutoAugment(transform rather than data augmentation): MinIoURandomCrop, Equailze, Brightness, Contrast, Albumentation(shiftscalerotate, randombrightnesscontrast, RGBshift, Huesaturationvalue), Rotation
+AutoAugment(transform rather than data augmentation): MinIoURandomCrop, Equailze, Brightness, Contrast, Albumentation(shiftscalerotate, randombrightnesscontrast, RGBshift, Huesaturationvalue), Rotation(max rotate angle = 90)
 
 img_scale: origin image size = (1280, 1024), default mmdet image size = (1333, 800)
