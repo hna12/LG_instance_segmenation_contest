@@ -21,7 +21,13 @@
 
 ### Workflow
 #### 1주차(7/13 ~ 7/17)
-instance segmentation 공부, MMdetection library 사용법 익히기, base-line(Mask RCNN)돌려보기 <br/>
+* Studying instance segmentation </br>
+(https://mountainous-patio-ee7.notion.site/instance-segmentation-69662f0a591746d2a2db4cb218de95b0) </br> 
+* Learn about MMdetection library </br>
+(https://mountainous-patio-ee7.notion.site/MMdetection-daba1bc939194a999963f4cec999eb59) </br>
+* Data analysis 
+* Training base-line(Mask RCNN) model <br/>
+
 #### 2주차(7/18 ~ 7/24)
 segmentation model 조원들에게 분배 후 제출해 점수가 높은 model 선정 후 model 공부, modeling <br/>
 #### 3주차(7/25 ~ 7/31)
