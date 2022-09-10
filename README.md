@@ -24,15 +24,49 @@
 * Studying instance segmentation </br>
 (https://mountainous-patio-ee7.notion.site/instance-segmentation-69662f0a591746d2a2db4cb218de95b0) </br> 
 * Learn about MMdetection library </br>
+간편하게 여러 최신 model을 이용할 수 있도록 package 제공됨. 
 (https://mountainous-patio-ee7.notion.site/MMdetection-daba1bc939194a999963f4cec999eb59) </br>
 * Data analysis 
-* Training base-line(Mask RCNN) model <br/>
+* Train base-line(Mask RCNN) model <br/>
+</br>
+
+ Model | Backbone | Score
+ -------------|-------|-------|
+ Mask RCNN(base-line) | resnet50 |  0.5761174985  |
+
+</br>
 
 #### 2주차(7/18 ~ 7/24)
-segmentation model 조원들에게 분배 후 제출해 점수가 높은 model 선정 후 model 공부, modeling <br/>
+* segmentation model list up </br>
+→ Mask R-CNN, Cascade Mask R-CNN, Mask Scoring R-CNN, Hybrid Task Cascade, YOLACT, SOLO, PointRend, DetectoRS, SOLOv2, SCNet, QueryInst
+* 조원들에게 model 분배 후 제출 </br>
+→ ✔️ Model을 분배했던 이유: MMDetection엔 많은 Instance Segmentation model이 존재하는데 각 model을 공부한 다음 data와 맞다고 생각되는 model을 정하기엔 시간이 촉박하여 조원들에게 model 분배 후 performance를 보고 model을 선정하기로 함.
+* 점수가 높은 model 선정 </br>
+→ SCNet, Mask Scoring R-CNN, Cascade Mask R-CNN, Mask R-CNN  </br>
+(0.57 이상의 점수가 나오는 model로 선정)
+</br>
+
+분배모델| 점수
+-------|-------|
+SCNet_r50_fpn_1x_coco  |  0.5861291233  |
+Cascade Mask R-CNN_r101_fpn_1x_coco | 0.596460128 |
+Mask Scoring R-CNN_r50_fpn_1x_coco | 0.5752475505  |
+Mask R-CNN_r101_fpn_1x_coco  |  0.5800140828 |
+   
+</br>
+
+* model 공부 </br>
+  * Mask R-CNN: https://www.notion.so/Mask-R-CNN-36b84ef17a21435e98760b11b444a20c
+  * Cascade R-CNN: https://www.notion.so/Cascade-R-CNN-67c341f5a30d4c508443c93d3b16c7d6
+  * SCNet: https://www.notion.so/SCNet-9d8061d6127b45cebec17e183ab232b8
+  * Mask Scoring R-CNN: https://www.notion.so/Mask-Scoring-R-CNN-8db7c7d76c2248f5bcdfb62ee2253674 </br>
+* modeling <br/>
 #### 3주차(7/25 ~ 7/31)
-Augmentation(이미지 증강 기법)을 listup 하여 각각 어떤 증강 기법을 사용할지 분배 후 성능 확인 및 선정. <br/>
-Backbone 분배 후 성능 확인 및 선정 <br/>
+* data 전처리 list up 후 분배, performance 확인 및 선정 </br>
+✔️model selection 후 data 전처리 순으로 workflow를 잡은 이유: 
+  * Augmentation(이미지 증강 기법)
+  * Transform(이미지 중 일부를 변형하여 학습에 사용)
+* Backbone 분배 후 성능 확인 및 선정 <br/>
 #### 4주차(8/1 ~ 8/8)
 Optimizer, Lr-scheduler 분배 후 선정 <br/>
 성능 향상을 위한 hyperparameter 조정 <br/>
