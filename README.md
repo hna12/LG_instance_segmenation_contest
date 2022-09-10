@@ -46,7 +46,7 @@
 (0.57 이상의 점수가 나오는 model로 선정)
 </br>
 
-분배모델| 점수
+selected model | score
 -------|-------|
 SCNet_r50_fpn_1x_coco  |  0.5861291233  |
 Cascade Mask R-CNN_r101_fpn_1x_coco | 0.596460128 |
@@ -61,17 +61,30 @@ Mask R-CNN_r101_fpn_1x_coco  |  0.5800140828 |
   * SCNet: https://www.notion.so/SCNet-9d8061d6127b45cebec17e183ab232b8
   * Mask Scoring R-CNN: https://www.notion.so/Mask-Scoring-R-CNN-8db7c7d76c2248f5bcdfb62ee2253674 </br>
 * modeling <br/>
+최종 선정한 모델에서 깊이에 차이를 두고 threshold를 바꿔본 결과 </br> cascade_rcnn_x101_32x4d_fpn_1x_coco으로 0.6점대를 넘어섰다. </br>
+model 과 IoU threshold를 동일 조건으로 줘서 3주차에 전처리과정을 수행할 계획.
+</br>
+
+model | epoch | IoU threshold | score
+-------|-------|-------|-------|
+cascade_rcnn_x101_32x4d_fpn_1x_coco | 30e | 0.3~0.6 | 0.6071687709 |
+
+</br>
+
 #### 3주차(7/25 ~ 7/31)
 * data 전처리 list up 후 분배, performance 확인 및 선정 </br>
   * Offline augmentation
+    * flip, shear, rotate, rotation, bbox flip, bbox rotate, bbox rotation </br>
+(cf. rotate vs rotation: 전체 이미지를 돌리는 것, 이미지 사이즈는 고정하되 이미지 자체가 회전되고 남는 부분은 padding 시킴.)
   * Online augmentation </br>
-(cf. offline vs online augmentation: https://yoda-it-study.tistory.com/34 )
+    * shear, rotate, resize, flip, equalize, brightness, contrast, minIoUrandomcrop, Albumentation </br>
+
+(cf. about offline vs online augmentation: https://yoda-it-study.tistory.com/34 )
  
  ✔️model selection 후 data 전처리 순으로 workflow를 잡은 이유: </br>
  augmentation시 data의 복잡도가 증가하는데 model마다 복잡도도 다양하기 때문에 </br>
  먼저 model을 고정시키고 augmentation을 다양하게 적용시켜 성능향상을 보는것이 좋을거라 판단해 model을 먼저 선택하였다.
 * Backbone 분배 후 성능 확인 및 선정 <br/>
-
 ✔️data 전처리 후 backbone selection 순으로 workflow를 잡은 이유: </br>
 
 #### 4주차(8/1 ~ 8/8)
