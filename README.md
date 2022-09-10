@@ -24,7 +24,7 @@
 * Studying instance segmentation </br>
 (https://mountainous-patio-ee7.notion.site/instance-segmentation-69662f0a591746d2a2db4cb218de95b0) </br> 
 * Learn about MMdetection library </br>
-간편하게 여러 최신 model을 이용할 수 있도록 package 제공됨. 
+간편하게 여러 최신 model을 이용할 수 있도록 package 제공됨. </br>
 (https://mountainous-patio-ee7.notion.site/MMdetection-daba1bc939194a999963f4cec999eb59) </br>
 * Data analysis 
 * Train base-line(Mask RCNN) model <br/>
@@ -63,10 +63,17 @@ Mask R-CNN_r101_fpn_1x_coco  |  0.5800140828 |
 * modeling <br/>
 #### 3주차(7/25 ~ 7/31)
 * data 전처리 list up 후 분배, performance 확인 및 선정 </br>
-✔️model selection 후 data 전처리 순으로 workflow를 잡은 이유: 
-  * Augmentation(이미지 증강 기법)
-  * Transform(이미지 중 일부를 변형하여 학습에 사용)
+  * Offline augmentation
+  * Online augmentation </br>
+(cf. offline vs online augmentation: https://yoda-it-study.tistory.com/34 )
+ 
+ ✔️model selection 후 data 전처리 순으로 workflow를 잡은 이유: </br>
+ augmentation시 data의 복잡도가 증가하는데 model마다 복잡도도 다양하기 때문에 </br>
+ 먼저 model을 고정시키고 augmentation을 다양하게 적용시켜 성능향상을 보는것이 좋을거라 판단해 model을 먼저 선택하였다.
 * Backbone 분배 후 성능 확인 및 선정 <br/>
+
+✔️data 전처리 후 backbone selection 순으로 workflow를 잡은 이유: </br>
+
 #### 4주차(8/1 ~ 8/8)
 Optimizer, Lr-scheduler 분배 후 선정 <br/>
 성능 향상을 위한 hyperparameter 조정 <br/>
