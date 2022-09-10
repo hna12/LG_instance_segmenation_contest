@@ -61,14 +61,14 @@ Mask R-CNN_r101_fpn_1x_coco  |  0.5800140828 |
   * SCNet: https://www.notion.so/SCNet-9d8061d6127b45cebec17e183ab232b8
   * Mask Scoring R-CNN: https://www.notion.so/Mask-Scoring-R-CNN-8db7c7d76c2248f5bcdfb62ee2253674 </br>
 * modeling <br/>
-최종 선정한 모델에서 깊이에 차이를 두고 threshold를 바꿔본 결과 </br> cascade_rcnn_x101_32x4d_fpn_1x_coco으로 0.6점대를 넘어섰다. </br>
+최종 선정한 모델에서 깊이에 차이를 두고 threshold를 바꿔본 결과 </br> cascade_rcnn_x101 모델로 0.6점대를 넘어섰다. </br>
 model 과 IoU threshold를 동일 조건으로 줘서 3주차에 전처리과정을 수행할 계획.
 </br>
 
 model | epoch | IoU threshold | score
 -------|-------|-------|-------|
-cascade_rcnn_x101_32x4d_fpn_1x_coco | 30e | 0.3~0.6 | 0.6071687709 |
-
+cascade_rcnn_x101_32x4d_fpn_1x_coco | 12e | 0.3~0.6 | 0.6065363398 |
+cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | 12e | 0.3~0.6 | 0.6079679485 |
 </br>
 
 #### 3주차(7/25 ~ 7/31)
@@ -78,6 +78,17 @@ cascade_rcnn_x101_32x4d_fpn_1x_coco | 30e | 0.3~0.6 | 0.6071687709 |
 (cf. rotate vs rotation: 전체 이미지를 돌리는 것, 이미지 사이즈는 고정하되 이미지 자체가 회전되고 남는 부분은 padding 시킴.)
   * Online augmentation </br>
     * shear, rotate, resize, flip, equalize, brightness, contrast, minIoUrandomcrop, Albumentation </br>
+
+</br>
+
+model | online aug | score
+-------|-------|-------|
+cascade_rcnn_x101_32x4d_fpn_1x_coco | equalize, brightness, contrast | 0.6044010023 |
+cascade_rcnn_x101_32x4d_fpn_1x_coco | resize (1024, 1280) | 0.6084128911 |
+cascade_rcnn_x101_32x4d_fpn_1x_coco | minIoUrandomcrop | 0.6023441395 |
+cascade_rcnn_x101_32x4d_fpn_1x_coco | all augmentation | 0.5452023496 |
+
+</br>
 
 (cf. about offline vs online augmentation: https://yoda-it-study.tistory.com/34 )
  
