@@ -96,7 +96,9 @@ cascade_rcnn_x101_32x4d_fpn_1x_coco | all augmentation | 0.5452023496 |
  augmentation시 data의 복잡도가 증가하는데 model마다 복잡도도 다양하기 때문에 </br>
  먼저 model을 고정시키고 augmentation을 다양하게 적용시켜 성능향상을 보는것이 좋을거라 판단해 model을 먼저 선택하였다.
 * Backbone 분배 후 성능 확인 및 선정 <br/>
+  * 최종 backbone: ResNeXt, ResNet strikes back
 ✔️data 전처리 후 backbone selection 순으로 workflow를 잡은 이유: </br>
+data augmentation에 따라 data의 complexity에 변화가 생기는데 backbone은 data로 부터 feature map을 뽑아주는 과정이기 때문에 augmentation을 정한 후 그에 맞는 backbone을 선택하는게 좋을거라 판단해 augmentation후 backbone selection을 하였다.
 
 #### 4주차(8/1 ~ 8/8)
 Optimizer, Lr-scheduler 분배 후 선정 <br/>
