@@ -117,7 +117,7 @@ data augmentation에 따라 data의 complexity에 변화가 생기는데 backbon
 <br>
 
 model | online aug | backbone | score
--------|-------|-------|-------|-------|
+-------|-------|-------|-------|
 cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | 0.6045638857 |
 cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | 0.6079679485 |
 
