@@ -61,7 +61,8 @@ Mask R-CNN_r101_fpn_1x_coco  |  0.5800140828 |
   * SCNet: https://www.notion.so/SCNet-9d8061d6127b45cebec17e183ab232b8
   * Mask Scoring R-CNN: https://www.notion.so/Mask-Scoring-R-CNN-8db7c7d76c2248f5bcdfb62ee2253674 </br>
 * modeling <br/>
-최종 선정한 각 모델에서 깊이에 차이를 두고 threshold를 바꿔본 결과 </br> cascade_mask_rcnn_x101 모델로 0.6점대를 넘어섰다. </br>
+최종 선정한 각 모델에서 깊이에 차이를 두고 threshold를 바꿔본 결과 </br> 
+cascade_mask_rcnn_x101 모델로 0.6점대를 넘어섰다. </br>
 model 과 IoU threshold를 동일 조건으로 줘서 3주차에 전처리과정을 수행할 계획.
 </br>
 
@@ -90,14 +91,15 @@ cascade_mask_rcnn_x101_32x4d_fpn_1x_coco | minIoUrandomcrop | 0.6023441395 |
 cascade_mask_rcnn_x101_32x4d_fpn_1x_coco | all augmentation | 0.5452023496 |
 
 </br>
-기존의 모델과 비교했을때 performance가 증가하는 건 이미지 원본사이즈로 online augmentation하는 것 뿐이었다.
+기존의 모델과 비교했을때 performance가 증가하는 건 이미지 원본사이즈로 resize시키는 online augmentation 뿐이었다.
 (cf. about offline vs online augmentation: https://yoda-it-study.tistory.com/34 )
  
  ✔️model selection 후 data 전처리 순으로 workflow를 잡은 이유: </br>
  augmentation시 data의 복잡도가 증가하는데 model마다 복잡도도 다양하기 때문에 </br>
  먼저 model을 고정시키고 augmentation을 다양하게 적용시켜 성능향상을 보는것이 좋을거라 판단해 model을 먼저 선택하였다.
 * Backbone 분배 후 성능 확인 및 선정 <br/>
-  * 최종 backbone: ResNeXt(default), ResNet strikes back </br>
+  * 최종 backbone: ResNeXt(default), ResNet strikes back 
+  * 가장 상위의 performance를 내는 2개의 backbone 선택
 
 </br>
 
@@ -113,17 +115,28 @@ data augmentation에 따라 data의 complexity에 변화가 생기는데 backbon
 
 #### 4주차(8/1 ~ 8/8)
 * Optimizer 분배 후 선정
+  * adadelta로 변경 후 0.61점대를 넘길 수 있었다.
+  * adadelta를 최종 optimizer로 선정
 
 <br>
 
-model | online aug | backbone | score
--------|-------|-------|-------|
-cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | 0.6045638857 |
-cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | 0.6079679485 |
+model | online aug | backbone | optimizer | score
+-------|-------|-------|-------|-------|
+cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 0.6104731677	 |
+cascade_mask_rcnn_x101_32x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 0.6110075826	 |
+cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.6110104141	 |
 
 </br>
 
 * 2주차에서 선택했던 model들에도 동일한 조건으로 둬 performance 확인
+<br>
+
+model | online aug | backbone | optimizer | score
+-------|-------|-------|-------|-------|
+ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 0.613928616	 |
+ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.6134804408	 |
+
+</br>
 
 ### Result
 - mmdetection설명
