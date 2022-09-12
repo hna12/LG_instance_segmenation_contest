@@ -90,7 +90,7 @@ cascade_mask_rcnn_x101_32x4d_fpn_1x_coco | minIoUrandomcrop | 0.6023441395 |
 cascade_mask_rcnn_x101_32x4d_fpn_1x_coco | all augmentation | 0.5452023496 |
 
 </br>
-
+기존의 모델과 비교했을때 performance가 증가하는 건 이미지 원본사이즈로 online augmentation하는 것 뿐이었다.
 (cf. about offline vs online augmentation: https://yoda-it-study.tistory.com/34 )
  
  ✔️model selection 후 data 전처리 순으로 workflow를 잡은 이유: </br>
@@ -99,21 +99,31 @@ cascade_mask_rcnn_x101_32x4d_fpn_1x_coco | all augmentation | 0.5452023496 |
 * Backbone 분배 후 성능 확인 및 선정 <br/>
   * 최종 backbone: ResNeXt(default), ResNet strikes back </br>
 
-✔️data 전처리 후 backbone selection 순으로 workflow를 잡은 이유: </br>
-data augmentation에 따라 data의 complexity에 변화가 생기는데 backbone은 data로 부터 feature map을 뽑아주는 과정이기 때문에 augmentation을 정한 후 그에 맞는 backbone을 선택하는게 좋을거라 판단해 augmentation후 backbone selection을 하였다.
-
 </br>
 
 model | online aug | backbone | score
--------|-------|-------|
+-------|-------|-------|-------|
+cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | 0.6079679485 |
+cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | 0.6045638857 |
+
+</br>
+
+✔️data 전처리 후 backbone selection 순으로 workflow를 잡은 이유: </br>
+data augmentation에 따라 data의 complexity에 변화가 생기는데 backbone은 data로 부터 feature map을 뽑아주는 과정이기 때문에 augmentation을 정한 후 그에 맞는 backbone을 선택하는게 좋을거라 판단해 augmentation후 backbone selection을 하였다.
+
+#### 4주차(8/1 ~ 8/8)
+* Optimizer 분배 후 선정
+
+<br>
+
+model | online aug | backbone | score
+-------|-------|-------|-------|-------|
 cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | 0.6045638857 |
 cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | 0.6079679485 |
 
 </br>
 
-#### 4주차(8/1 ~ 8/8)
-Optimizer, Lr-scheduler 분배 후 선정 <br/>
-성능 향상을 위한 hyperparameter 조정 <br/>
+* 2주차에서 선택했던 model들에도 동일한 조건으로 둬 performance 확인
 
 ### Result
 - mmdetection설명
