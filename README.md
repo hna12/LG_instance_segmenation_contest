@@ -61,7 +61,7 @@ Mask R-CNN_r101_fpn_1x_coco  |  0.5800140828 |
   * SCNet: https://www.notion.so/SCNet-9d8061d6127b45cebec17e183ab232b8
   * Mask Scoring R-CNN: https://www.notion.so/Mask-Scoring-R-CNN-8db7c7d76c2248f5bcdfb62ee2253674 </br>
 * modeling <br/>
-최종 선정한 각 모델에서 깊이에 차이를 두고 threshold를 바꿔본 결과 </br> 
+최종 선정한 각 모델에서 깊이에 차이를 두고 IoU threshold를 바꿔본 결과 </br> 
 cascade_mask_rcnn_x101 모델로 0.6점대를 넘어섰다. </br>
 model 과 IoU threshold를 동일 조건으로 줘서 3주차에 전처리과정을 수행할 계획.
 </br>
@@ -115,7 +115,7 @@ data augmentation에 따라 data의 complexity에 변화가 생기는데 backbon
 
 #### 4주차(8/1 ~ 8/8)
 * Optimizer 분배 후 선정
-  * adadelta로 변경 후 0.61점대를 넘길 수 있었다.
+  * SGD(default)에서 adadelta로 변경 후 0.61점대를 넘길 수 있었다.
   * adadelta를 최종 optimizer로 선정
 
 <br>
@@ -138,13 +138,4 @@ ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | a
 
 </br>
 
-### Result
-- mmdetection설명
-- segmentation model -> 선정한 model
-- augmentation list up -> 선정한거
-- backbone 
-- optimizer, lr-scheduler
-- hyperparameter
-
-
-## Discussion
+### Discussion
