@@ -159,7 +159,7 @@ model | online aug | backbone | optimizer | epoch | score
 ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 20e | 0.6089602078	 |
 ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 15e | 0.6136761449	 |
 ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 10e | 0.613928616	 |
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 15e | 0.6134804408	 |
+cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 15e | 0.6134804408	 |
 ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 14e | 0.6141174972	 |
 ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 10e | 0.613928616	 |
 
