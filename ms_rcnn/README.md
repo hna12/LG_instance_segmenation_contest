@@ -9,6 +9,4 @@ optimizer: SGD, Adadelta
 
 AutoAugment(online augmentation) : resize (1333, 800) -> (1280,1024)
 
-Offline Augmentation
-
 img_scale: origin image size = (1280, 1024), default mmdet image size = (1333, 800)
