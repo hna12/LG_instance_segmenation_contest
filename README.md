@@ -144,10 +144,10 @@ cascade mask R-CNN외에도 Mask scoring R-CNN도 높은 성능을 보여주었�
 * IoU threshold 0.2~0.6으로 바꿔주면서 성능이 더 향상되는 것을 확인
 <br>
 
-model | online aug | backbone | optimizer | score
--------|-------|-------|-------|-------|
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 0.613928616	 |
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.6134804408	 |
+model | online aug | backbone | optimizer | IoU threshold | score
+-------|-------|-------|-------|-------|-------|
+ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.3~0.6 | 0.6134804408	 |
+ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 0.6171016691	 |
 
 </br>
 
@@ -155,13 +155,13 @@ ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | a
 <br>
 
 model | online aug | backbone | optimizer | epoch | score
--------|-------|-------|-------|-------|
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 20e | 0.6089602078	 |
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 15e | 0.6136761449	 |
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 10e | 0.613928616	 |
-cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 15e | 0.6134804408	 |
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 14e | 0.6141174972	 |
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | ResNeXt(default) | adadelta | 10e | 0.613928616	 |
+-------|-------|-------|-------|-------|-------|
+ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 14e | 0.6171016691	 |
+ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 10e | 0.6179983076	 |
+cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 15e | 0.616678574	 |
+cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 12e | 0.6174024875	 |
+cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 10e | 0.6209292892 |
+cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 9e | 0.623549387 |
 
 </br>
 
