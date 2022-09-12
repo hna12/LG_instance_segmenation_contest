@@ -5,6 +5,6 @@ backbone: ResNet50, ResNet101, ResNext101
 
 optimizer: SGD, Adadelta
 
-AutoAugment: MinIoURandomCrop (transform rather than data augmentation)
+AutoAugment: MinIoURandomCrop (online augmentation)
 
 img_scale: origin image size = (1280, 1024), default mmdet image size = (1333, 800)
