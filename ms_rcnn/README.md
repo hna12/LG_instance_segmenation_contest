@@ -7,7 +7,7 @@ backbone: ResNext101, ResNet strikes back
 
 optimizer: SGD, Adadelta
 
-AutoAugment(transform rather than data augmentation) 사용x
+AutoAugment(online augmentation) : resize (1333, 800) -> (1280,1024)
 
 Offline Augmentation
 
