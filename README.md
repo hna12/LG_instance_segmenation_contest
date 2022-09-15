@@ -77,7 +77,8 @@ cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | 12e | 0.3~0.6 | 0.6079679485 |
 * data 전처리 list up 후 분배, performance 확인 및 선정 </br>
   * Offline augmentation
     * flip, shear, rotate, rotation, bbox flip, bbox rotate, bbox rotation </br>
-(cf. rotate vs rotation: 전체 이미지를 돌리는 것, 이미지 사이즈는 고정하되 이미지 자체가 회전되고 남는 부분은 padding 시킴.)
+    * offline augmentation시 performance는 더 떨어져서 사용하지 않았다.
+(cf. rotate vs rotation: rotate는 전체 이미지를 돌리는 것, rotation은 이미지 사이즈는 고정하되 이미지 자체가 회전되고 남는 부분은 padding 시킴.)
   * Online augmentation </br>
     * shear, rotate, resize, flip, equalize, brightness, contrast, minIoUrandomcrop, Albumentation </br>
 
@@ -139,17 +140,6 @@ ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | a
 </br>
 cascade mask R-CNN외에도 Mask scoring R-CNN도 높은 성능을 보여주었다. </br>
 
-* 성능을 높이도록 여러 hyperparameter 조정하기
-  * IoU threshold 0.2~0.6으로 바꿔주면서 성능이 더 향상되는 것을 확인
-<br>
-
-model | online aug | backbone | optimizer | IoU threshold | score
--------|-------|-------|-------|-------|-------|
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.3~0.6 | 0.6134804408	 |
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 0.6171016691	 |
-
-</br> 
-
 ### Discussion
 * epoch 수가 적어짐에 따라 성능이 향상되는 것을 확인
 <br>
@@ -167,3 +157,14 @@ cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strike
 cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 9e | 0.623549387 |
 
 </br>
+
+* 성능을 높이도록 여러 hyperparameter 조정하기
+  * IoU threshold 0.2~0.6으로 바꿔주면서 성능이 더 향상되는 것을 확인
+<br>
+
+model | online aug | backbone | optimizer | IoU threshold | score
+-------|-------|-------|-------|-------|-------|
+ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.3~0.6 | 0.6134804408	 |
+ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 0.6171016691	 |
+
+</br> 
