@@ -141,7 +141,23 @@ ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | a
 cascade mask R-CNN외에도 Mask scoring R-CNN도 높은 성능을 보여주었다. </br>
 
 ### Discussion
-* epoch 수가 적어짐에 따라 성능이 향상되는 것을 확인
+* Cascade mask R-CNN, Mask scoring R-CNN의 performance가 더 좋았던 이유?
+* 성능을 높이도록 hyperparameter 조정
+  * IoU threshold 0.2~0.6으로 바꿔주면서 성능이 더 향상되는 것을 확인
+  * 왜 performance가 더 향상이 되었을 이유?
+<br>
+
+model | online aug | backbone | optimizer | IoU threshold | score
+-------|-------|-------|-------|-------|-------|
+ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.3~0.6 | 0.6134804408	 |
+ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 0.6171016691	 |
+
+</br> 
+
+* backbone을 ResNet strikes back을 사용함에 따른 performance 향상 이유?
+* Adadelta를 사용함에 따른 performance 향상 이유?
+* Overfitting?
+  * epoch 수가 적어짐에 따라 성능이 향상되는 것을 확인
 <br>
 
 model | online aug | backbone | optimizer | IoU threshold | epoch | score
@@ -157,14 +173,4 @@ cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strike
 cascade_mask_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 9e | 0.623549387 |
 
 </br>
-
-* 성능을 높이도록 여러 hyperparameter 조정하기
-  * IoU threshold 0.2~0.6으로 바꿔주면서 성능이 더 향상되는 것을 확인
-<br>
-
-model | online aug | backbone | optimizer | IoU threshold | score
--------|-------|-------|-------|-------|-------|
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.3~0.6 | 0.6134804408	 |
-ms_rcnn_x101_64x4d_fpn_1x_coco.py | resize(1024, 1280) | resnet strikes back | adadelta | 0.2~0.6 | 0.6171016691	 |
-
-</br> 
+  * offline aug의 performance가 구렸던 이유?
